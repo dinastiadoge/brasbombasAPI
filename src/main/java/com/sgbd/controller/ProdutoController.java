@@ -2,7 +2,9 @@ package com.sgbd.controller;
 
 
 import com.sgbd.entity.Produto;
+import com.sgbd.request.AtualizarProdutoRequest;
 import com.sgbd.request.CadastrarProdutoRequest;
+import com.sgbd.response.AtualizarProdutoResponse;
 import com.sgbd.response.CadastrarProdutoResponse;
 import com.sgbd.service.ProdutoService;
 import jakarta.validation.Valid;
@@ -21,7 +23,7 @@ public class ProdutoController {
     private ProdutoService produtoService;
 
     @PostMapping
-    public ResponseEntity<String> salvarProduto(@Valid @RequestBody CadastrarProdutoRequest request) {
+    public ResponseEntity<CadastrarProdutoResponse> salvarProduto(@Valid @RequestBody CadastrarProdutoRequest request) {
         Produto produtosalvo = produtoService.salvarProduto(request);
 
         CadastrarProdutoResponse response = CadastrarProdutoResponse.builder()
@@ -32,15 +34,20 @@ public class ProdutoController {
                 .build();
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
-
-
-        return new ResponseEntity<>("Novo produto adicionado " + produtosalvo.getNome(), HttpStatus.CREATED);
     }
 
-    @PutMapping
-    public ResponseEntity<String> atualizarProduto(@RequestBody Produto produto) {
-        Produto produtosalvo = produtoService.salvarProduto(produto);
-        return new ResponseEntity<>("Produto atualizado " + produtosalvo.getNome(), HttpStatus.OK);
+    @PutMapping("{id}")
+    public ResponseEntity<AtualizarProdutoResponse> AtualizarTarefa(@PathVariable Long id, @Valid @RequestBody AtualizarProdutoRequest request) {
+        Produto produtosalvo = produtoService.atualizarProduto(id,request);
+
+        AtualizarProdutoResponse response = AtualizarProdutoResponse.builder()
+                .id(produtosalvo.getId())
+                .marca(produtosalvo.getMarca())
+                .nome(produtosalvo.getNome())
+                .quantidade(produtosalvo.getQuantidade())
+                .build();
+
+        return new ResponseEntity<>(response, HttpStatus.OK);
     }
 
     @GetMapping
