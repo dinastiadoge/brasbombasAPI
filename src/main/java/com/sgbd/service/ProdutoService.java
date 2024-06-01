@@ -21,10 +21,12 @@ public class ProdutoService {
 
     public Produto salvarProduto(CadastrarProdutoRequest request) {
 
+        //TODO VERIFICAR PELO NOME E PELA MARCA
+
         Produto produtoValidacao = produtoRepository.findByNome(request.getNome());
 
         if (produtoValidacao != null) {
-            throw new ProdutoExistenteException("Ja existe uma tarefa com o mesmo título ou descrição");
+            throw new ProdutoExistenteException("Ja existe esse mesmo produto");
         }
 
         Produto produto = Produto.builder()

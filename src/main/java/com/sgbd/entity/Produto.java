@@ -18,6 +18,16 @@ import java.io.Serializable;
 @Builder
 public class Produto implements Serializable {
 
+    public Produto() {
+    }
+
+    public Produto(Long id, String nome, String marca, Integer quantidade) {
+        this.id = id;
+        this.nome = nome;
+        this.marca = marca;
+        this.quantidade = quantidade;
+    }
+
     @Serial
     private static final long serialVersionUID = 1L;
 
