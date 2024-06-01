@@ -1,14 +1,13 @@
 package com.sgbd.response;
 
-
 import lombok.Builder;
-import lombok.Getter;
 import lombok.Setter;
+import lombok.Getter;
 
 @Getter
 @Setter
 @Builder
-public class CadastrarProdutoResponse {
+public class ClienteResponse {
 
     private Long id;
 
@@ -16,7 +15,6 @@ public class CadastrarProdutoResponse {
 
     private String nome;
 
-    private Integer quantidade;
-
+    private Long quantidade;
 
 }
