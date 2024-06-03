@@ -15,6 +15,7 @@ import java.io.Serializable;
 @Setter
 public class Cliente implements Serializable {
 
+
     @Serial
     private static final long serialVersionUID = 1L;
 
@@ -33,4 +34,6 @@ public class Cliente implements Serializable {
 
     @Column(nullable = false)
     private String telefone;
+
+
 }

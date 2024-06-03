@@ -21,12 +21,10 @@ public class ProdutoService {
 
     public Produto salvarProduto(CadastrarProdutoRequest request) {
 
-        //TODO VERIFICAR PELO NOME E PELA MARCA
 
-        Produto produtoValidacao = produtoRepository.findByNome(request.getNome());
-
+        Produto produtoValidacao = produtoRepository.findByNomeAndMarca(request.getNome(), request.getMarca());
         if (produtoValidacao != null) {
-            throw new ProdutoExistenteException("Ja existe esse mesmo produto");
+            throw new ProdutoExistenteException("Já existe esse mesmo produto");
         }
 
         Produto produto = Produto.builder()
@@ -57,4 +55,14 @@ public class ProdutoService {
 
         return produto;
     }
+
+    public void atualizarProdutoQuantidade(Long id, Integer quantidade) {
+        Produto produto = this.produtoRepository.findById(id).get();
+
+        produto.setQuantidade(quantidade);
+
+        this.produtoRepository.save(produto);
+    }
+
+
 }

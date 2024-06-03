@@ -18,5 +18,4 @@ public class CadastrarProdutoResponse {
 
     private Integer quantidade;
 
-
 }

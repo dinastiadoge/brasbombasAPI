@@ -26,4 +26,23 @@ public class ExcecoesHandler {
                 .build();
         return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
+
+    @ExceptionHandler(ClienteInexistenteException.class)
+    public ResponseEntity<ErrorResponse> ClienteInexistenteExceptionHanlder(ClienteInexistenteException clienteInexistenteException){
+
+        Map<String,String> response = new HashMap<>();
+        response.put("codigo", ErrosEnum.CLIENTE_INEXISTENTE.toString());
+        response.put("mensagem", clienteInexistenteException.getMessage());
+
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(HttpStatus.UNPROCESSABLE_ENTITY.toString())
+                .errors(Collections.singletonList(response))
+                .build();
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+
+
+
+
 }

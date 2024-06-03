@@ -1,6 +1,5 @@
 package com.sgbd.controller;
 
-
 import com.sgbd.entity.Produto;
 import com.sgbd.request.AtualizarProdutoRequest;
 import com.sgbd.request.CadastrarProdutoRequest;
@@ -37,8 +36,9 @@ public class ProdutoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<AtualizarProdutoResponse> AtualizarTarefa(@PathVariable Long id, @Valid @RequestBody AtualizarProdutoRequest request) {
-        Produto produtosalvo = produtoService.atualizarProduto(id,request);
+    public ResponseEntity<AtualizarProdutoResponse> AtualizarTarefa(@PathVariable Long id,
+            @Valid @RequestBody AtualizarProdutoRequest request) {
+        Produto produtosalvo = produtoService.atualizarProduto(id, request);
 
         AtualizarProdutoResponse response = AtualizarProdutoResponse.builder()
                 .id(produtosalvo.getId())
@@ -59,7 +59,5 @@ public class ProdutoController {
     public void excluirProduto(@RequestBody Produto produto) {
         produtoService.excluirProduto(produto);
     }
-
-
 
 }
