@@ -41,9 +41,10 @@ public class ProdutoService {
         return this.produtoRepository.findAll();
     }
 
-    public void excluirProduto(Produto produto) {
-        this.produtoRepository.deleteById(produto.getId());
+    public void excluirProduto(Long produto_id) {
+        this.produtoRepository.deleteById(produto_id);
     }
+
 
     public Produto atualizarProduto(Long id, AtualizarProdutoRequest request) {
         Produto produto = this.produtoRepository.findById(id).get();

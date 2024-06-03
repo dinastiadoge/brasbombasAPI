@@ -53,6 +53,4 @@ public class Compra implements Serializable {
     private Produto produto;
 
 
-
-
 }

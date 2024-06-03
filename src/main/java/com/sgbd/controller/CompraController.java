@@ -12,5 +12,4 @@ public class CompraController {
     @Autowired
     CompraService compraService;
 
-
 }

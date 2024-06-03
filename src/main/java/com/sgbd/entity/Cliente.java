@@ -15,6 +15,16 @@ import java.io.Serializable;
 @Setter
 public class Cliente implements Serializable {
 
+    public Cliente() {
+    }
+
+    public Cliente(Long CPF, String nome, String cep, Integer numero, String telefone) {
+        this.CPF = CPF;
+        this.nome = nome;
+        this.cep = cep;
+        this.numero = numero;
+        this.telefone = telefone;
+    }
 
     @Serial
     private static final long serialVersionUID = 1L;

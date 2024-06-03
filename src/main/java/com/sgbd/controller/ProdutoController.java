@@ -25,27 +25,16 @@ public class ProdutoController {
     public ResponseEntity<CadastrarProdutoResponse> salvarProduto(@Valid @RequestBody CadastrarProdutoRequest request) {
         Produto produtosalvo = produtoService.salvarProduto(request);
 
-        CadastrarProdutoResponse response = CadastrarProdutoResponse.builder()
-                .id(produtosalvo.getId())
-                .marca(produtosalvo.getMarca())
-                .nome(produtosalvo.getNome())
-                .quantidade(produtosalvo.getQuantidade())
-                .build();
+        CadastrarProdutoResponse response = CadastrarProdutoResponse.builder().id(produtosalvo.getId()).marca(produtosalvo.getMarca()).nome(produtosalvo.getNome()).quantidade(produtosalvo.getQuantidade()).build();
 
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<AtualizarProdutoResponse> AtualizarTarefa(@PathVariable Long id,
-            @Valid @RequestBody AtualizarProdutoRequest request) {
+    public ResponseEntity<AtualizarProdutoResponse> AtualizarTarefa(@PathVariable Long id, @Valid @RequestBody AtualizarProdutoRequest request) {
         Produto produtosalvo = produtoService.atualizarProduto(id, request);
 
-        AtualizarProdutoResponse response = AtualizarProdutoResponse.builder()
-                .id(produtosalvo.getId())
-                .marca(produtosalvo.getMarca())
-                .nome(produtosalvo.getNome())
-                .quantidade(produtosalvo.getQuantidade())
-                .build();
+        AtualizarProdutoResponse response = AtualizarProdutoResponse.builder().id(produtosalvo.getId()).marca(produtosalvo.getMarca()).nome(produtosalvo.getNome()).quantidade(produtosalvo.getQuantidade()).build();
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -55,9 +44,9 @@ public class ProdutoController {
         return new ResponseEntity<>(produtoService.obterProdutos(), HttpStatus.OK);
     }
 
-    @DeleteMapping
-    public void excluirProduto(@RequestBody Produto produto) {
-        produtoService.excluirProduto(produto);
+    @DeleteMapping("{id}")
+    public void excluirProduto(@PathVariable Long id) {
+        produtoService.excluirProduto(id);
     }
 
 }
