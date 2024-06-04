@@ -2,12 +2,10 @@ package com.sgbd.controller;
 
 import com.sgbd.Exceptions.ClienteInexistenteException;
 import com.sgbd.Exceptions.CompraInexistenteException;
-import com.sgbd.Exceptions.ProdutoExistenteException;
 import com.sgbd.Exceptions.ProdutoInexistenteException;
 import com.sgbd.entity.Cliente;
 import com.sgbd.entity.Compra;
 import com.sgbd.entity.Produto;
-import com.sgbd.repository.ProdutoRepository;
 import com.sgbd.request.AtualizarCompraRequest;
 import com.sgbd.request.CadastrarCompraRequest;
 import com.sgbd.response.AtualizarCompraResponse;
@@ -68,6 +66,9 @@ public class CompraController {
         if (compraAntiga.isEmpty()) {
             throw new CompraInexistenteException("Essa compra não existe");
         }
+
+
+        //todo ATUALIZAR O PRODUTO NO BANCO DE DADOS CORRETAMENTE
 
         produto.setQuantidade(produto.getQuantidade() + compraAntiga.get().getQuantidade());
 

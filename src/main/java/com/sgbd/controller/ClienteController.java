@@ -2,9 +2,7 @@ package com.sgbd.controller;
 
 
 import com.sgbd.entity.Cliente;
-import com.sgbd.entity.Produto;
 import com.sgbd.request.AtualizarClienteRequest;
-import com.sgbd.request.AtualizarProdutoRequest;
 import com.sgbd.request.CadastrarClienteRequest;
 import com.sgbd.service.ClienteService;
 import jakarta.validation.Valid;
@@ -33,7 +31,6 @@ public class ClienteController {
     public ResponseEntity<Cliente> atualizarCliente(@PathVariable Long id,@Valid @RequestBody AtualizarClienteRequest request) {
         Cliente clientesalvo = clienteService.atualizarCliente(id, request);
         return new ResponseEntity<>(clientesalvo, HttpStatus.OK);
-
     }
 
     @GetMapping

@@ -3,7 +3,6 @@ package com.sgbd.service;
 
 import com.sgbd.Exceptions.ProdutoExistenteException;
 import com.sgbd.entity.Cliente;
-import com.sgbd.entity.Produto;
 import com.sgbd.repository.ClienteRepository;
 import com.sgbd.request.AtualizarClienteRequest;
 import com.sgbd.request.CadastrarClienteRequest;
@@ -26,7 +25,7 @@ public class ClienteService {
 
         Optional<Cliente> clienteValidacao = clienteRepository.findById(request.getCpf());
         if (clienteValidacao.isPresent()) {
-            throw new ProdutoExistenteException("Já existe esse mesmo produto");
+            throw new ProdutoExistenteException("Já existe esse cliente no banco de dados");
         }
 
         Cliente cliente = Cliente.builder()

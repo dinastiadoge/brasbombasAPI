@@ -14,9 +14,9 @@ import java.util.Map;
 public class ExcecoesHandler {
 
     @ExceptionHandler(ProdutoExistenteException.class)
-    public ResponseEntity<ErrorResponse> ProdutoExistenteExceptionHandler(ProdutoExistenteException produtoExistenteException){
+    public ResponseEntity<ErrorResponse> ProdutoExistenteExceptionHandler(ProdutoExistenteException produtoExistenteException) {
 
-        Map<String,String> response = new HashMap<>();
+        Map<String, String> response = new HashMap<>();
         response.put("codigo", ErrosEnum.PRODUTO_EXISTENTE.toString());
         response.put("mensagem", produtoExistenteException.getMessage());
 
@@ -27,10 +27,24 @@ public class ExcecoesHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
-    @ExceptionHandler(ClienteInexistenteException.class)
-    public ResponseEntity<ErrorResponse> ClienteInexistenteExceptionHandler(ClienteInexistenteException clienteInexistenteException){
+    @ExceptionHandler(BombaExistenteException.class)
+    public ResponseEntity<ErrorResponse> BombaExistenteExceptionHandler(BombaExistenteException bombaExistenteException) {
 
-        Map<String,String> response = new HashMap<>();
+        Map<String, String> response = new HashMap<>();
+        response.put("codigo", ErrosEnum.BOMBA_EXISTENTE.toString());
+        response.put("mensagem", bombaExistenteException.getMessage());
+
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(HttpStatus.UNPROCESSABLE_ENTITY.toString())
+                .errors(Collections.singletonList(response))
+                .build();
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler(ClienteInexistenteException.class)
+    public ResponseEntity<ErrorResponse> ClienteInexistenteExceptionHandler(ClienteInexistenteException clienteInexistenteException) {
+
+        Map<String, String> response = new HashMap<>();
         response.put("codigo", ErrosEnum.CLIENTE_INEXISTENTE.toString());
         response.put("mensagem", clienteInexistenteException.getMessage());
 
@@ -42,9 +56,9 @@ public class ExcecoesHandler {
     }
 
     @ExceptionHandler(CompraInexistenteException.class)
-    public ResponseEntity<ErrorResponse> CompraInexistenteExceptionHandler(CompraInexistenteException compraInexistenteException){
+    public ResponseEntity<ErrorResponse> CompraInexistenteExceptionHandler(CompraInexistenteException compraInexistenteException) {
 
-        Map<String,String> response = new HashMap<>();
+        Map<String, String> response = new HashMap<>();
         response.put("codigo", ErrosEnum.COMPRA_INEXISTENTE.toString());
         response.put("mensagem", compraInexistenteException.getMessage());
 
@@ -54,9 +68,6 @@ public class ExcecoesHandler {
                 .build();
         return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
-
-
-
 
 
 }
