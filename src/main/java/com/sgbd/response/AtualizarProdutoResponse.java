@@ -9,7 +9,6 @@ import lombok.Setter;
 @Builder
 public class AtualizarProdutoResponse {
 
-
     private Long id;
 
     private String marca;

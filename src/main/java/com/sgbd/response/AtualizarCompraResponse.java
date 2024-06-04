@@ -7,7 +7,7 @@ import lombok.Setter;
 @Getter
 @Setter
 @Builder
-public class CadastrarCompraResponse {
+public class AtualizarCompraResponse {
 
     private Long id;
 
@@ -16,4 +16,5 @@ public class CadastrarCompraResponse {
     private String produto_nome;
 
     private Integer quantidade;
+
 }

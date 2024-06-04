@@ -33,8 +33,12 @@ public class ProdutoController {
     @PutMapping("{id}")
     public ResponseEntity<AtualizarProdutoResponse> AtualizarTarefa(@PathVariable Long id, @Valid @RequestBody AtualizarProdutoRequest request) {
         Produto produtosalvo = produtoService.atualizarProduto(id, request);
-
-        AtualizarProdutoResponse response = AtualizarProdutoResponse.builder().id(produtosalvo.getId()).marca(produtosalvo.getMarca()).nome(produtosalvo.getNome()).quantidade(produtosalvo.getQuantidade()).build();
+        AtualizarProdutoResponse response = AtualizarProdutoResponse.builder()
+                .id(produtosalvo.getId())
+                .marca(produtosalvo.getMarca())
+                .nome(produtosalvo.getNome())
+                .quantidade(produtosalvo.getQuantidade())
+                .build();
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
@@ -50,3 +54,5 @@ public class ProdutoController {
     }
 
 }
+
+

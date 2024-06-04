@@ -65,5 +65,7 @@ public class ProdutoService {
         this.produtoRepository.save(produto);
     }
 
-
+    public Produto findByNome(String produtoNome) {
+        return this.produtoRepository.findByNome(produtoNome);
+    }
 }

@@ -1,6 +1,7 @@
 package com.sgbd.entity;
 
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,11 +9,13 @@ import lombok.Setter;
 import java.io.Serial;
 import java.io.Serializable;
 
+
 @Entity
 @Table(name = "Clientes")
 @Data
 @Getter
 @Setter
+@Builder
 public class Cliente implements Serializable {
 
     public Cliente() {

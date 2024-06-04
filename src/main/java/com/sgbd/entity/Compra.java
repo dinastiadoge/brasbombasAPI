@@ -12,6 +12,7 @@ import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
+
 @Entity
 @Table(name = "Compras")
 @Data
@@ -23,7 +24,7 @@ public class Compra implements Serializable {
     public Compra() {
     }
 
-    public Compra(Long id, Integer quantidade, LocalTime dataCriacao, Cliente cliente, Produto produto) {
+    public Compra(Long id, Integer quantidade, LocalTime dataCriacao, String cliente, String produto) {
         this.id = id;
         this.quantidade = quantidade;
         this.dataCriacao = dataCriacao;
@@ -44,13 +45,10 @@ public class Compra implements Serializable {
     @CreationTimestamp
     private LocalTime dataCriacao;
 
-    @ManyToOne
-    @JoinColumn(name = "cliente_cpf", nullable = false)
-    private Cliente cliente;
+    private String cliente;
 
-    @ManyToOne
-    @JoinColumn(name = "produto_id", nullable = false)
-    private Produto produto;
+    private String produto;
+
 
 
 }
