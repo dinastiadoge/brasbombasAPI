@@ -31,7 +31,7 @@ public class ProdutoController {
     }
 
     @PutMapping("{id}")
-    public ResponseEntity<AtualizarProdutoResponse> AtualizarTarefa(@PathVariable Long id, @Valid @RequestBody AtualizarProdutoRequest request) {
+    public ResponseEntity<AtualizarProdutoResponse> atualizarProduto(@PathVariable Long id, @Valid @RequestBody AtualizarProdutoRequest request) {
         Produto produtosalvo = produtoService.atualizarProduto(id, request);
         AtualizarProdutoResponse response = AtualizarProdutoResponse.builder()
                 .id(produtosalvo.getId())
@@ -42,6 +42,11 @@ public class ProdutoController {
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+
+
+
+
 
     @GetMapping
     public ResponseEntity<List<Produto>> obterProdutos() {

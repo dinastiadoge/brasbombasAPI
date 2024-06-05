@@ -46,7 +46,7 @@ public class CompraController {
             throw new ProdutoInexistenteException("Produto inexistente no banco de dados, cadastre ele antes para cadastrar uma compra");
         }
 
-        produto.setQuantidade(produto.getQuantidade() - request.getQuantidade());
+        atualizarQuantidadeProduto(produto.getId(), produto.getQuantidade()-request.getQuantidade());
 
         CadastrarCompraResponse response = CadastrarCompraResponse.builder()
                 .id(Compra.getId())
@@ -68,9 +68,9 @@ public class CompraController {
         }
 
 
-        //todo ATUALIZAR O PRODUTO NO BANCO DE DADOS CORRETAMENTE
+        //todo ATUALIZAR O PRODUTO NO BANCO DE DADOS CORRETAMENTE: feito?
 
-        produto.setQuantidade(produto.getQuantidade() + compraAntiga.get().getQuantidade());
+        atualizarQuantidadeProduto(produto.getId(), produto.getQuantidade() + compraAntiga.get().getQuantidade());
 
         AtualizarCompraResponse response = AtualizarCompraResponse.builder()
                 .cliente_cpf(request.getCliente())
@@ -78,10 +78,15 @@ public class CompraController {
                 .quantidade(request.getQuantidade())
                 .build();
 
-        produto.setQuantidade(produto.getQuantidade() - request.getQuantidade());
+        atualizarQuantidadeProduto(produto.getId(), produto.getQuantidade()-request.getQuantidade());
 
         return new ResponseEntity<>(response, HttpStatus.OK);
     }
+
+    protected void atualizarQuantidadeProduto(long id, Integer valor){
+        Produto produtosalvo = produtoService.atualizarProduto(id, valor);
+    }
+
 
     @GetMapping
     public ResponseEntity<List<Compra>> obterCompras() {

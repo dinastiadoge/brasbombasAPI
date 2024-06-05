@@ -56,6 +56,13 @@ public class ProdutoService {
 
         return produto;
     }
+    public Produto atualizarProduto(Long id, Integer valor) {
+        Produto produto = this.produtoRepository.findById(id).get();
+        produto.setQuantidade(valor);
+        this.produtoRepository.save(produto);
+
+        return produto;
+    }
 
     public void atualizarProdutoQuantidade(Long id, Integer quantidade) {
         Produto produto = this.produtoRepository.findById(id).get();
