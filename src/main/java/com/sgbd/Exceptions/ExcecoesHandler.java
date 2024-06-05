@@ -69,5 +69,33 @@ public class ExcecoesHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
+    @ExceptionHandler(ProdutoInexistenteException.class)
+    public ResponseEntity<ErrorResponse> ProdutoInexistenteExceptionHandler(ProdutoInexistenteException produtoInexistenteException) {
+
+        Map<String, String> response = new HashMap<>();
+        response.put("codigo", ErrosEnum.PRODUTO_INEXISTENTE.toString());
+        response.put("mensagem", produtoInexistenteException.getMessage());
+
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(HttpStatus.UNPROCESSABLE_ENTITY.toString())
+                .errors(Collections.singletonList(response))
+                .build();
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
+    @ExceptionHandler(ValorInvalidoException.class)
+    public ResponseEntity<ErrorResponse> ValorInvalidoExceptionHandler(ValorInvalidoException valorInvalidoException) {
+
+        Map<String, String> response = new HashMap<>();
+        response.put("codigo", ErrosEnum.VALOR_INVALIDO.toString());
+        response.put("mensagem", valorInvalidoException.getMessage());
+
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(HttpStatus.UNPROCESSABLE_ENTITY.toString())
+                .errors(Collections.singletonList(response))
+                .build();
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
+
 
 }

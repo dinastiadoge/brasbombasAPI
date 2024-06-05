@@ -2,6 +2,7 @@ package com.sgbd.entity;
 
 import java.io.Serial;
 import java.io.Serializable;
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 
 import org.hibernate.annotations.CreationTimestamp;
@@ -24,7 +25,7 @@ public class Compra implements Serializable {
     public Compra() {
     }
 
-    public Compra(Long id, Integer quantidade, LocalTime dataCriacao, String cliente, String produto) {
+    public Compra(Long id, Integer quantidade, LocalDateTime dataCriacao, String cliente, String produto) {
         this.id = id;
         this.quantidade = quantidade;
         this.dataCriacao = dataCriacao;
@@ -43,7 +44,8 @@ public class Compra implements Serializable {
     private Integer quantidade;
 
     @CreationTimestamp
-    private LocalTime dataCriacao;
+    @Column(columnDefinition = "TIMESTAMP", nullable = false)
+    private LocalDateTime dataCriacao;
 
     private String cliente;
 
