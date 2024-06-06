@@ -1,5 +1,7 @@
 package com.sgbd.request;
 
+import com.sgbd.entity.Cliente;
+import com.sgbd.status.StatusEnum;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,4 +20,12 @@ public class AtualizarBombaRequest {
     private String voltagem;
 
     private String descricao;
+
+    private String cliente_cpf;
+
+    private StatusEnum status;
+
+    private Double valor;
+
+
 }

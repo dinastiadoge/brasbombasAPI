@@ -97,5 +97,18 @@ public class ExcecoesHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
+    @ExceptionHandler(NaoPermitirAlterarStatusException.class)
+    public ResponseEntity<ErrorResponse> NaoPermitirAlterarStatusExceptionHandler(NaoPermitirAlterarStatusException naoPermitirAlterarStatusException) {
+
+        Map<String, String> response = new HashMap<>();
+        response.put("codigo", ErrosEnum.STATUS_INVALIDO.toString());
+        response.put("mensagem", naoPermitirAlterarStatusException.getMessage());
+
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(HttpStatus.UNPROCESSABLE_ENTITY.toString())
+                .errors(Collections.singletonList(response))
+                .build();
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
 
 }

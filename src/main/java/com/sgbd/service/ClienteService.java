@@ -40,7 +40,6 @@ public class ClienteService {
 
     }
 
-
     public List<Cliente> obterClientes() {
         return this.clienteRepository.findAll();
     }

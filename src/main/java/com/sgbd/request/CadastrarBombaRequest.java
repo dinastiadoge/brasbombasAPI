@@ -1,5 +1,7 @@
 package com.sgbd.request;
 
+import com.sgbd.entity.Cliente;
+import com.sgbd.status.StatusEnum;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Positive;
@@ -28,4 +30,14 @@ public class CadastrarBombaRequest {
 
     @NotBlank(message = "{cadastrar.bomba.request.descricao.obrigatorio}")
     private String descricao;
+
+    @NotBlank(message = "{cadastrar.bomba.request.clientecpf.obrigatorio}")
+    private String cliente_cpf;
+
+    @NotNull(message = "{cadastrar.bomba.request.status.obrigatorio}")
+    private StatusEnum status;
+
+    @Positive(message = "{cadastrar.bomba.request.valor.positivo}")
+    private Double valor;
+
 }
