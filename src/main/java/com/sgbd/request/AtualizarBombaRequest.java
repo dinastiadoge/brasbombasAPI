@@ -1,6 +1,5 @@
 package com.sgbd.request;
 
-import com.sgbd.entity.Cliente;
 import com.sgbd.status.StatusEnum;
 import lombok.Getter;
 import lombok.Setter;

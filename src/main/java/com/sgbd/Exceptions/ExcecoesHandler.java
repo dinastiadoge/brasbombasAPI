@@ -111,4 +111,17 @@ public class ExcecoesHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
     }
 
+    @ExceptionHandler(BombaInexistenteException.class)
+    public ResponseEntity<ErrorResponse> BombaInexistenteExceptionHandler(BombaInexistenteException bombaInexistenteException) {
+
+        Map<String, String> response = new HashMap<>();
+        response.put("codigo", ErrosEnum.BOMBA_INEXISTENTE.toString());
+        response.put("mensagem", bombaInexistenteException.getMessage());
+
+        ErrorResponse errorResponse = ErrorResponse.builder()
+                .status(HttpStatus.UNPROCESSABLE_ENTITY.toString())
+                .errors(Collections.singletonList(response))
+                .build();
+        return new ResponseEntity<>(errorResponse, HttpStatus.UNPROCESSABLE_ENTITY);
+    }
 }

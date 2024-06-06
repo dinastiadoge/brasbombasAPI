@@ -2,6 +2,7 @@ package com.sgbd.service;
 
 
 import com.sgbd.Exceptions.BombaExistenteException;
+import com.sgbd.Exceptions.BombaInexistenteException;
 import com.sgbd.Exceptions.ClienteInexistenteException;
 import com.sgbd.Exceptions.NaoPermitirAlterarStatusException;
 import com.sgbd.entity.Bomba;
@@ -74,6 +75,12 @@ public class BombaService {
     }
 
     public void excluirBomba(Long bomba_id) {
+        Optional<Bomba> bombaValidacao = bombaRepository.findById(bomba_id);
+
+        if (bombaValidacao.isEmpty()) {
+            throw new BombaInexistenteException("Não existe essa bomba no banco!");
+        }
+
         this.bombaRepository.deleteById(bomba_id);
     }
 

@@ -26,7 +26,7 @@ public class BombaController {
 
         return new ResponseEntity<>(bombasalva, HttpStatus.CREATED);
     }
-    // /clientes/id
+
     @PutMapping("{id}")
     public ResponseEntity<Bomba> atualizarBomba(@PathVariable Long id, @Valid @RequestBody AtualizarBombaRequest request) {
         Bomba bombasalva = bombaService.atualizarBomba(id, request);

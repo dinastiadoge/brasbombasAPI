@@ -1,6 +1,7 @@
 package com.sgbd.service;
 
 
+import com.sgbd.Exceptions.ClienteInexistenteException;
 import com.sgbd.Exceptions.ProdutoExistenteException;
 import com.sgbd.entity.Cliente;
 import com.sgbd.repository.ClienteRepository;
@@ -49,6 +50,11 @@ public class ClienteService {
     }
 
     public void excluirCliente(Long cliente_id) {
+        Optional<Cliente> clienteValidacao = clienteRepository.findById(cliente_id);
+        if (clienteValidacao.isEmpty()) {
+            throw new ClienteInexistenteException("Cliente Inexistente!");
+        }
+
         this.clienteRepository.deleteById(cliente_id);
     }
 
