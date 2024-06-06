@@ -32,7 +32,7 @@ public class BombaService {
 
         Optional<Bomba> bombaValidacao = bombaRepository.findById(request.getOS());
         if (bombaValidacao.isPresent()) {
-            throw new BombaExistenteException("Já existe essa bomba no banco de dados");
+            throw new BombaExistenteException("Já existe essa bomba no banco de dados!");
         }
         Optional<Cliente> clienteValidacao = clienteRepository.findById(Long.valueOf(request.getCliente_cpf()));
         if (clienteValidacao.isEmpty()) {
@@ -91,6 +91,9 @@ public class BombaService {
         bomba.setVoltagem(request.getVoltagem());
         bomba.setPotencia(request.getPotencia());
         bomba.setDescricao(request.getDescricao());
+        bomba.setCliente(request.getCliente_cpf());
+        bomba.setValor(request.getValor());
+        bomba.setStatus(request.getStatus());
         this.bombaRepository.save(bomba);
         return bomba;
     }
