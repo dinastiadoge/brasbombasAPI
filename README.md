@@ -28,7 +28,8 @@ PUT:
 
 POST:
 <br>seuendereço/produtos
-<br>body do produto:
+
+body do produto:
 {
     "nome":"produto",
     "marca": "marca",
@@ -36,6 +37,7 @@ POST:
 }
 
 <br>seuendereço/compras
+
 body da compra:
 {
     "cliente": 1,
@@ -44,6 +46,7 @@ body da compra:
 }
 
 <br>seuendereço/clientes
+
 body do cliente:
 {
     "cpf": 1,
@@ -54,6 +57,7 @@ body do cliente:
 }
 
 <br>seuendereço/bombas
+
 body da bomba:
 {
     "os":5001,
