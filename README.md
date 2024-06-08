@@ -1,5 +1,5 @@
 # brasbombasAPI
-Protótipo de interface para o gerenciamento do banco de dados.
+Protótipo de um sistema gerenciamento do banco de dados.
 
 ## Instruções para execução da aplicação:
 - É necessário um compilador java para executar a aplicação localmente ou carregar o .jar da aplicação num servidor como os da AWS.
