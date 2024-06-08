@@ -9,22 +9,22 @@ Protótipo de interface para o gerenciamento do banco de dados.
 Obs: Atenção para enviar requisições com POST e PUT é preciso enviar os dados formatados no BODY da requisição.
 
 GET:
-seuendereço/bombas
-seuendereço/compras
-seuendereço/clientes
-seuendereço/produtos
+<br>seuendereço/bombas
+<br>seuendereço/compras
+<br>seuendereço/clientes
+<br>seuendereço/produtos
 
 DELETE:
-seuendereço/bombas/id
-seuendereço/compras/id
-seuendereço/clientes/id
-seuendereço/compras/id
+<br>seuendereço/bombas/id
+<br>seuendereço/compras/id
+<br>seuendereço/clientes/id
+<br>seuendereço/compras/id
 
 PUT:
-seuendereço/bombas/id
-seuendereço/compras/id
-seuendereço/clientes/id
-seuendereço/compras/id
+<br>seuendereço/bombas/id
+<br>seuendereço/compras/id
+<br>seuendereço/clientes/id
+<br>seuendereço/compras/id
 
 POST:
 body do produto:
@@ -62,8 +62,6 @@ body da bomba:
     "status" : "ORCAMENTO",
     "valor" : 200.00
 }
-
-
 
 ## Diagrama conceitual e lógico:
 <br><img src = "Diagramas/Brasbombasconceitual.png" width="100%"> 
