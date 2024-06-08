@@ -6,4 +6,5 @@ inseridas no arquivo README.md.
 desenvolvida devem ser incluídos no repositório do GitHub. 
 
 Diagrama conceitual e Diagrama lógico
-<img src = "Diagramas/Brasbombasconceitual.png" width="450px">      <img src = "Diagramas/Brasbombaslogico.png" width="450px">
+<img src = "Diagramas/Brasbombasconceitual.png" width="450px"> 
+<img src = "Diagramas/Brasbombaslogico.png" width="450px">
