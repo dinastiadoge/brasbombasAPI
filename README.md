@@ -1,9 +1,69 @@
 # brasbombasAPI
-Interface para o gerenciamento do banco de dados.
-A descrição do trabalho e as instruções para execução da aplicação devem ser 
-inseridas no arquivo README.md. 
-• Todos os arquivos, esquemas/diagramas e demais informações sobre a solução 
-desenvolvida devem ser incluídos no repositório do GitHub. 
+Protótipo de interface para o gerenciamento do banco de dados.
+
+## Instruções para execução da aplicação:
+- É necessário um compilador java para executar a aplicação localmente ou carregar o .jar da aplicação num servidor como os da AWS.
+- Para o envio de requisições é necessário o uso de um aplicativo de teste como o PostMan ou testar num navegador.
+- Para realizar corretamente a conexão ao banco de dados é necessário configurar a String de conexão no arquivo application.properties.
+  
+Obs: Atenção para enviar requisições com POST e PUT é preciso enviar os dados formatados no BODY da requisição.
+
+GET:
+seuendereço/bombas
+seuendereço/compras
+seuendereço/clientes
+seuendereço/produtos
+
+DELETE:
+seuendereço/bombas/id
+seuendereço/compras/id
+seuendereço/clientes/id
+seuendereço/compras/id
+
+PUT:
+seuendereço/bombas/id
+seuendereço/compras/id
+seuendereço/clientes/id
+seuendereço/compras/id
+
+POST:
+body do produto:
+{
+    "nome":"produto",
+    "marca": "marca",
+    "quantidade": "100"
+}
+
+body da compra:
+{
+    "cliente": 1,
+    "produto_nome": "produto",
+    "quantidade": 99
+}
+
+body do cliente:
+{
+    "cpf": 1,
+    "nome": "teste",
+    "cep": "111111",
+    "numero": 111,
+    "telefone": "1111111"
+}
+
+body da bomba:
+{
+    "os":5001,
+    "marca":"Schneider",
+    "modelo":"Alta pressaaum",
+    "potencia":"20cv",
+    "voltagem":"480v",
+    "descricao":"A bomba não está mandando água, rotor foi trocado recentemente.",
+    "cliente_cpf" : 1,
+    "status" : "ORCAMENTO",
+    "valor" : 200.00
+}
+
+
 
 ## Diagrama conceitual e lógico:
 <br><img src = "Diagramas/Brasbombasconceitual.png" width="100%"> 
