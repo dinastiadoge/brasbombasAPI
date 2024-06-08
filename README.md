@@ -8,5 +8,5 @@ desenvolvida devem ser incluídos no repositório do GitHub.
 ## Diagrama conceitual e lógico:
 <br><img src = "Diagramas/Brasbombasconceitual.png" width="100%"> 
 <br><img src = "Diagramas/Brasbombaslogico.png" width="100%">
-<br> ## Mapeamento das requisições:
+## Mapeamento das requisições:
 <br><img src = "Diagramas/brasbombasrequest.drawio.png" width="100%">
