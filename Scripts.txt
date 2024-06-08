@@ -1,0 +1,129 @@
+    create database brasbombasBD
+
+    create table bombas (
+        data_atualizacao date,
+        data_chegada date,
+        status smallint not null check (status between 0 and 5),
+        valor float(53),
+        os bigint not null,
+        cliente varchar(255) not null,
+        descricao varchar(255) not null,
+        marca varchar(255) not null,
+        modelo varchar(255) not null,
+        potencia varchar(255) not null,
+        voltagem varchar(255) not null,
+        primary key (os)
+    )
+
+    create table clientes (
+        numero integer not null,
+        cpf bigint not null,
+        cep varchar(255) not null,
+        nome varchar(255) not null,
+        telefone varchar(255) not null,
+        primary key (cpf)
+    )
+
+    create table compras (
+        quantidade integer not null,
+        data_criacao TIMESTAMP not null,
+        id bigint not null,
+        cliente varchar(255),
+        produto varchar(255),
+        primary key (id)
+    )
+
+    create table produtos (
+        quantidade integer not null,
+        id bigint not null,
+        marca varchar(255) not null,
+        nome varchar(255) not null,
+        primary key (id)
+    )
+
+    create table bombas (
+        data_atualizacao date,
+        data_chegada date,
+        status smallint not null check (status between 0 and 5),
+        valor float(53),
+        os bigint not null,
+        cliente varchar(255) not null,
+        descricao varchar(255) not null,
+        marca varchar(255) not null,
+        modelo varchar(255) not null,
+        potencia varchar(255) not null,
+        voltagem varchar(255) not null,
+        primary key (os)
+    )
+
+    create table clientes (
+        numero integer not null,
+        cpf bigint not null,
+        cep varchar(255) not null,
+        nome varchar(255) not null,
+        telefone varchar(255) not null,
+        primary key (cpf)
+    )
+
+    create table compras (
+        quantidade integer not null,
+        data_criacao TIMESTAMP not null,
+        id bigint not null,
+        cliente varchar(255),
+        produto varchar(255),
+        primary key (id)
+    )
+
+    create table produtos (
+        quantidade integer not null,
+        id bigint not null,
+        marca varchar(255) not null,
+        nome varchar(255) not null,
+        primary key (id)
+    )
+
+script de cliente
+insert 
+    into
+        clientes
+        (cep, nome, numero, telefone, cpf) 
+    values
+        (?, ?, ?, ?, ?)
+
+
+SCTIPT DE BOMBA
+insert 
+    into
+        bombas
+        (cliente, data_atualizacao, data_chegada, descricao, marca, modelo, potencia, status, valor, voltagem, os) 
+    values
+        (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+
+
+script de produto
+insert 
+    into
+        produtos
+        (marca, nome, quantidade, id) 
+    values
+        (?, ?, ?, ?)
+
+
+script de compra
+select
+        nextval('compras_seq')
+
+    insert 
+    into
+        compras
+        (cliente, data_criacao, produto, quantidade, id) 
+    values
+        (?, ?, ?, ?, ?)
+    update
+        produtos 
+    set
+        marca=?,
+        nome=?,
+        quantidade=? 
+    where
+        id=?
