@@ -27,7 +27,7 @@ PUT:
 <br>seuendereço/compras/id
 
 POST:
-body do produto:
+<br>body do produto:
 {
     "nome":"produto",
     "marca": "marca",
@@ -54,7 +54,7 @@ body da bomba:
 {
     "os":5001,
     "marca":"Schneider",
-    "modelo":"Alta pressaaum",
+    "modelo":"Alta pressão",
     "potencia":"20cv",
     "voltagem":"480v",
     "descricao":"A bomba não está mandando água, rotor foi trocado recentemente.",
